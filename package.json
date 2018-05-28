@@ -1,0 +1,15 @@
+{
+  "name": "videopoker",
+  "version": "1.0.0",
+  "description": "Video Poker in JavaScript",
+  "main": "videopoker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jay Ts",
+  "license": "ISC",
+  "dependencies": {
+    "printf": "^0.3.0",
+    "readline-sync": "^1.4.9"
+  }
+}

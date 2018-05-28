@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# push Go-VideoPoker to GitHub
+
+# Repository URL
+# https://github.com/Yaoir/Go-VideoPoker.git
+
+git remote add origin https://github.com/Yaoir/Go-VideoPoker.git
+echo "Yaoir   nn9PQKmUWIApkGu"
+git push -u origin master
