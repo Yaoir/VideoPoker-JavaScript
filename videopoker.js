@@ -96,11 +96,21 @@ var suitname =
 	"S",
 ]
 
-/* Needed for recognizing royal flush, or tens or better (TEN),
-   or jacks or better (JACK) */
+/* indices for card values */
 
-const TEN = 9	/* the index of the "10" card */
-const JACK = 10	/* the index of the "jack" card */
+const TWO    = 1
+const THREE  = 2
+const FOUR   = 3
+const FIVE   = 4
+const SIX    = 5
+const SEVEN  = 6
+const EIGHT  = 7
+const NINE   = 8
+const TEN    = 9 /* needed for recognizing royal flush, or tens or better (TEN), or jacks or better (JACK) */
+const JACK  = 10 /* needed for recognizing royal flush, or tens or better (TEN), or jacks or better (JACK) */
+const QUEEN = 11
+const KING  = 12
+const ACE   = 13  /* needed for recognizing Ace-low straight (Ace, 2, 3, 4, 5) */
 
 /* the card type, for holding infomation about the deck of cards */
 
@@ -120,62 +130,62 @@ const JACK = 10	/* the index of the "jack" card */
 
 var deck =
 [
-/*	index, card, Unicode, suit, gone */
-	{  "index": 1, "sym": " 2", "uc": "\u{0001F0D2}", "suit": CLUBS, "gone": 0 },
-	{  "index": 2, "sym": " 3", "uc": "\u{0001F0D3}", "suit": CLUBS, "gone": 0 },
-	{  "index": 3, "sym": " 4", "uc": "\u{0001F0D4}", "suit": CLUBS, "gone": 0 },
-	{  "index": 4, "sym": " 5", "uc": "\u{0001F0D5}", "suit": CLUBS, "gone": 0 },
-	{  "index": 5, "sym": " 6", "uc": "\u{0001F0D6}", "suit": CLUBS, "gone": 0 },
-	{  "index": 6, "sym": " 7", "uc": "\u{0001F0D7}", "suit": CLUBS, "gone": 0 },
-	{  "index": 7, "sym": " 8", "uc": "\u{0001F0D8}", "suit": CLUBS, "gone": 0 },
-	{  "index": 8, "sym": " 9", "uc": "\u{0001F0D9}", "suit": CLUBS, "gone": 0 },
-	{  "index": 9, "sym": "10", "uc": "\u{0001F0Da}", "suit": CLUBS, "gone": 0 },
-	{ "index": 10, "sym": " J", "uc": "\u{0001F0Db}", "suit": CLUBS, "gone": 0 },
-	{ "index": 11, "sym": " Q", "uc": "\u{0001F0Dd}", "suit": CLUBS, "gone": 0 },
-	{ "index": 12, "sym": " K", "uc": "\u{0001F0De}", "suit": CLUBS, "gone": 0 },
-	{ "index": 13, "sym": " A", "uc": "\u{0001F0D1}", "suit": CLUBS, "gone": 0 },
+/*      index, card, Unicode, suit, gone */
+        { "index": TWO,   "sym": " 2", "uc": "\u{0001F0D2}", "suit": CLUBS, "gone": 0 },
+        { "index": THREE, "sym": " 3", "uc": "\u{0001F0D3}", "suit": CLUBS, "gone": 0 },
+        { "index": FOUR,  "sym": " 4", "uc": "\u{0001F0D4}", "suit": CLUBS, "gone": 0 },
+        { "index": FIVE,  "sym": " 5", "uc": "\u{0001F0D5}", "suit": CLUBS, "gone": 0 },
+        { "index": SIX,   "sym": " 6", "uc": "\u{0001F0D6}", "suit": CLUBS, "gone": 0 },
+        { "index": SEVEN, "sym": " 7", "uc": "\u{0001F0D7}", "suit": CLUBS, "gone": 0 },
+        { "index": EIGHT, "sym": " 8", "uc": "\u{0001F0D8}", "suit": CLUBS, "gone": 0 },
+        { "index": NINE,  "sym": " 9", "uc": "\u{0001F0D9}", "suit": CLUBS, "gone": 0 },
+        { "index": TEN,   "sym": "10", "uc": "\u{0001F0Da}", "suit": CLUBS, "gone": 0 },
+        { "index": JACK,  "sym": " J", "uc": "\u{0001F0Db}", "suit": CLUBS, "gone": 0 },
+        { "index": QUEEN, "sym": " Q", "uc": "\u{0001F0Dd}", "suit": CLUBS, "gone": 0 },
+        { "index": KING,  "sym": " K", "uc": "\u{0001F0De}", "suit": CLUBS, "gone": 0 },
+        { "index": ACE,   "sym": " A", "uc": "\u{0001F0D1}", "suit": CLUBS, "gone": 0 },
 
-	{  "index": 1, "sym": " 2", "uc": "\u{0001F0C2}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 2, "sym": " 3", "uc": "\u{0001F0C3}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 3, "sym": " 4", "uc": "\u{0001F0C4}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 4, "sym": " 5", "uc": "\u{0001F0C5}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 5, "sym": " 6", "uc": "\u{0001F0C6}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 6, "sym": " 7", "uc": "\u{0001F0C7}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 7, "sym": " 8", "uc": "\u{0001F0C8}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 8, "sym": " 9", "uc": "\u{0001F0C9}", "suit": DIAMONDS, "gone": 0 },
-	{  "index": 9, "sym": "10", "uc": "\u{0001F0Ca}", "suit": DIAMONDS, "gone": 0 },
-	{ "index": 10, "sym": " J", "uc": "\u{0001F0Cb}", "suit": DIAMONDS, "gone": 0 },
-	{ "index": 11, "sym": " Q", "uc": "\u{0001F0Cd}", "suit": DIAMONDS, "gone": 0 },
-	{ "index": 12, "sym": " K", "uc": "\u{0001F0Ce}", "suit": DIAMONDS, "gone": 0 },
-	{ "index": 13, "sym": " A", "uc": "\u{0001F0C1}", "suit": DIAMONDS, "gone": 0 },
+        { "index": TWO,   "sym": " 2", "uc": "\u{0001F0C2}", "suit": DIAMONDS, "gone": 0 },
+        { "index": THREE, "sym": " 3", "uc": "\u{0001F0C3}", "suit": DIAMONDS, "gone": 0 },
+        { "index": FOUR,  "sym": " 4", "uc": "\u{0001F0C4}", "suit": DIAMONDS, "gone": 0 },
+        { "index": FIVE,  "sym": " 5", "uc": "\u{0001F0C5}", "suit": DIAMONDS, "gone": 0 },
+        { "index": SIX,   "sym": " 6", "uc": "\u{0001F0C6}", "suit": DIAMONDS, "gone": 0 },
+        { "index": SEVEN, "sym": " 7", "uc": "\u{0001F0C7}", "suit": DIAMONDS, "gone": 0 },
+        { "index": EIGHT, "sym": " 8", "uc": "\u{0001F0C8}", "suit": DIAMONDS, "gone": 0 },
+        { "index": NINE,  "sym": " 9", "uc": "\u{0001F0C9}", "suit": DIAMONDS, "gone": 0 },
+        { "index": TEN,   "sym": "10", "uc": "\u{0001F0Ca}", "suit": DIAMONDS, "gone": 0 },
+        { "index": JACK,  "sym": " J", "uc": "\u{0001F0Cb}", "suit": DIAMONDS, "gone": 0 },
+        { "index": QUEEN, "sym": " Q", "uc": "\u{0001F0Cd}", "suit": DIAMONDS, "gone": 0 },
+        { "index": KING,  "sym": " K", "uc": "\u{0001F0Ce}", "suit": DIAMONDS, "gone": 0 },
+        { "index": ACE,   "sym": " A", "uc": "\u{0001F0C1}", "suit": DIAMONDS, "gone": 0 },
 
-	{  "index": 1, "sym": " 2", "uc": "\u{0001F0B2}", "suit": HEARTS, "gone": 0 },
-	{  "index": 2, "sym": " 3", "uc": "\u{0001F0B3}", "suit": HEARTS, "gone": 0 },
-	{  "index": 3, "sym": " 4", "uc": "\u{0001F0B4}", "suit": HEARTS, "gone": 0 },
-	{  "index": 4, "sym": " 5", "uc": "\u{0001F0B5}", "suit": HEARTS, "gone": 0 },
-	{  "index": 5, "sym": " 6", "uc": "\u{0001F0B6}", "suit": HEARTS, "gone": 0 },
-	{  "index": 6, "sym": " 7", "uc": "\u{0001F0B7}", "suit": HEARTS, "gone": 0 },
-	{  "index": 7, "sym": " 8", "uc": "\u{0001F0B8}", "suit": HEARTS, "gone": 0 },
-	{  "index": 8, "sym": " 9", "uc": "\u{0001F0B9}", "suit": HEARTS, "gone": 0 },
-	{  "index": 9, "sym": "10", "uc": "\u{0001F0Ba}", "suit": HEARTS, "gone": 0 },
-	{ "index": 10, "sym": " J", "uc": "\u{0001F0Bb}", "suit": HEARTS, "gone": 0 },
-	{ "index": 11, "sym": " Q", "uc": "\u{0001F0Bd}", "suit": HEARTS, "gone": 0 },
-	{ "index": 12, "sym": " K", "uc": "\u{0001F0Be}", "suit": HEARTS, "gone": 0 },
-	{ "index": 13, "sym": " A", "uc": "\u{0001F0B1}", "suit": HEARTS, "gone": 0 },
+        { "index": TWO,   "sym": " 2", "uc": "\u{0001F0B2}", "suit": HEARTS, "gone": 0 },
+        { "index": THREE, "sym": " 3", "uc": "\u{0001F0B3}", "suit": HEARTS, "gone": 0 },
+        { "index": FOUR,  "sym": " 4", "uc": "\u{0001F0B4}", "suit": HEARTS, "gone": 0 },
+        { "index": FIVE,  "sym": " 5", "uc": "\u{0001F0B5}", "suit": HEARTS, "gone": 0 },
+        { "index": SIX,   "sym": " 6", "uc": "\u{0001F0B6}", "suit": HEARTS, "gone": 0 },
+        { "index": SEVEN, "sym": " 7", "uc": "\u{0001F0B7}", "suit": HEARTS, "gone": 0 },
+        { "index": EIGHT, "sym": " 8", "uc": "\u{0001F0B8}", "suit": HEARTS, "gone": 0 },
+        { "index": NINE,  "sym": " 9", "uc": "\u{0001F0B9}", "suit": HEARTS, "gone": 0 },
+        { "index": TEN,   "sym": "10", "uc": "\u{0001F0Ba}", "suit": HEARTS, "gone": 0 },
+        { "index": JACK,  "sym": " J", "uc": "\u{0001F0Bb}", "suit": HEARTS, "gone": 0 },
+        { "index": QUEEN, "sym": " Q", "uc": "\u{0001F0Bd}", "suit": HEARTS, "gone": 0 },
+        { "index": KING,  "sym": " K", "uc": "\u{0001F0Be}", "suit": HEARTS, "gone": 0 },
+        { "index": ACE,   "sym": " A", "uc": "\u{0001F0B1}", "suit": HEARTS, "gone": 0 },
 
-	{  "index": 1, "sym": " 2", "uc": "\u{0001F0A2}", "suit": SPADES, "gone": 0 },
-	{  "index": 2, "sym": " 3", "uc": "\u{0001F0A3}", "suit": SPADES, "gone": 0 },
-	{  "index": 3, "sym": " 4", "uc": "\u{0001F0A4}", "suit": SPADES, "gone": 0 },
-	{  "index": 4, "sym": " 5", "uc": "\u{0001F0A5}", "suit": SPADES, "gone": 0 },
-	{  "index": 5, "sym": " 6", "uc": "\u{0001F0A6}", "suit": SPADES, "gone": 0 },
-	{  "index": 6, "sym": " 7", "uc": "\u{0001F0A7}", "suit": SPADES, "gone": 0 },
-	{  "index": 7, "sym": " 8", "uc": "\u{0001F0A8}", "suit": SPADES, "gone": 0 },
-	{  "index": 8, "sym": " 9", "uc": "\u{0001F0A9}", "suit": SPADES, "gone": 0 },
-	{  "index": 9, "sym": "10", "uc": "\u{0001F0Aa}", "suit": SPADES, "gone": 0 },
-	{ "index": 10, "sym": " J", "uc": "\u{0001F0Ab}", "suit": SPADES, "gone": 0 },
-	{ "index": 11, "sym": " Q", "uc": "\u{0001F0Ad}", "suit": SPADES, "gone": 0 },
-	{ "index": 12, "sym": " K", "uc": "\u{0001F0Ae}", "suit": SPADES, "gone": 0 },
-	{ "index": 13, "sym": " A", "uc": "\u{0001F0A1}", "suit": SPADES, "gone": 0 },
+        { "index": TWO,   "sym": " 2", "uc": "\u{0001F0A2}", "suit": SPADES, "gone": 0 },
+        { "index": THREE, "sym": " 3", "uc": "\u{0001F0A3}", "suit": SPADES, "gone": 0 },
+        { "index": FOUR,  "sym": " 4", "uc": "\u{0001F0A4}", "suit": SPADES, "gone": 0 },
+        { "index": FIVE,  "sym": " 5", "uc": "\u{0001F0A5}", "suit": SPADES, "gone": 0 },
+        { "index": SIX,   "sym": " 6", "uc": "\u{0001F0A6}", "suit": SPADES, "gone": 0 },
+        { "index": SEVEN, "sym": " 7", "uc": "\u{0001F0A7}", "suit": SPADES, "gone": 0 },
+        { "index": EIGHT, "sym": " 8", "uc": "\u{0001F0A8}", "suit": SPADES, "gone": 0 },
+        { "index": NINE,  "sym": " 9", "uc": "\u{0001F0A9}", "suit": SPADES, "gone": 0 },
+        { "index": TEN,   "sym": "10", "uc": "\u{0001F0Aa}", "suit": SPADES, "gone": 0 },
+        { "index": JACK,  "sym": " J", "uc": "\u{0001F0Ab}", "suit": SPADES, "gone": 0 },
+        { "index": QUEEN, "sym": " Q", "uc": "\u{0001F0Ad}", "suit": SPADES, "gone": 0 },
+        { "index": KING,  "sym": " K", "uc": "\u{0001F0Ae}", "suit": SPADES, "gone": 0 },
+        { "index": ACE,   "sym": " A", "uc": "\u{0001F0A1}", "suit": SPADES, "gone": 0 },
 ]
 
 /* The hand. It holds five cards. */
@@ -495,6 +505,12 @@ function straight()
 	   shand[3].index == shand[2].index + 1 &&
 	   shand[4].index == shand[3].index + 1) { return true }
 
+        if(shand[4].index == ACE   &&
+           shand[0].index == TWO   &&
+           shand[1].index == THREE &&
+           shand[2].index == FOUR  &&
+           shand[3].index == FIVE) { return true }
+
 	return false
 }
 
@@ -588,15 +604,15 @@ function two()
 	paytable[] and handname[], so make sure the two match.
 */
 
-const ROYAL = 0
-const STRFL = 1
-const FOUR = 2
-const FULL = 3
-const FLUSH = 4
-const STR = 5
-const THREE = 6
+const ROYAL   = 0
+const STRFL   = 1
+const FOURK   = 2
+const FULL    = 3
+const FLUSH   = 4
+const STR     = 5
+const THREEK  = 6
 const TWOPAIR = 7
-const PAIR = 8
+const PAIR    = 8
 const NOTHING = 9
 /* the number of the above: */
 const NUMHANDTYPES = 10
@@ -675,11 +691,11 @@ function recognize()
 
 	if(st && fl && shand[0].index == TEN) { return ROYAL }
 	if(st && fl) { return STRFL }
-	if(four()) { return FOUR }
+	if(four()) { return FOURK }
 	if(full()) { return FULL }
 	if(fl) { return FLUSH }
 	if(st) { return STR }
-	if(three()) { return THREE }
+	if(three()) { return THREEK }
 	if(twopair()) { return TWOPAIR }
 	if(two()) { return PAIR }
 
